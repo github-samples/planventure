@@ -23,10 +23,10 @@ Before you begin, ensure you have the following:
 
 If you prefer to develop locally, follow the steps below:
 
-1. Clone the repository to your local machine and switch to the `apistart` branch:
+1. Clone the repository to your local machine and create a new branch:
 ```sh
 git clone https://github.com/github-samples/planventure.git
-git switch apistart
+git checkout-b your-branch-name
 ```
 
 2. Create a virtual environment and activate it:
