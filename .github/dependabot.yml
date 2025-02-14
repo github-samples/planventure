@@ -1,6 +1,14 @@
 # This is the dependabot configuration file that automates dependency updates
 # Updates section configures how dependabot should handle dependency updates:
-# - Monitors GitHub Actions workflow dependencies in the root directory
+# - Monitors pip dependencies in the planventure-api directory
 # - Checks for updates weekly
 #
-# Learn more at https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-the-dependabotyml-file
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/planventure-api"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "python"
