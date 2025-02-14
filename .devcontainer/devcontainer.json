@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/go
 {
-    "name": "Game of Life Walkthrough",
+    "name": "Planventure Sample",
     // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
     "image": "mcr.microsoft.com/devcontainers/universal:latest",
   
@@ -30,7 +30,7 @@
           "GitHub.remotehub",
           "github.vscode-github-actions",
           "GitHub.vscode-pull-request-github",
-          "ms-vscode.live-server"
+          "python.python"
         ]
       }
     }
