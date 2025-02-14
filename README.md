@@ -35,7 +35,7 @@ python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-3. Navigate to the [planventue-api](/planventure-api/) directory:
+3. Navigate to the [planventure-api](/planventure-api/) directory:
 ```sh
 cd planventure-api
 ```
