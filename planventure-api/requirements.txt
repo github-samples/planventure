@@ -1,0 +1,15 @@
+# Core dependencies
+flask==2.3.3
+flask-sqlalchemy==3.1.1
+flask-cors==4.0.0
+python-dotenv==1.0.0
+
+# Authentication
+flask-jwt-extended==4.5.3
+werkzeug==2.3.7
+
+# Password hashing
+bcrypt==4.0.1
+
+# Database migrations
+Flask-Migrate==4.0.5
