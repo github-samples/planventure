@@ -1,51 +1,62 @@
-# Planventure API 🚁
+# Planventure API
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/github-samples/planventure)
+A Flask-based REST API that powers the Planventure trip planning application. This API provides authentication, trip management, and itinerary generation features.
 
-A Flask-based REST API backend for the Planventure application.
+Followed [this tutorial by GitHub](https://youtu.be/CJUbQ1QiBUY) to use MS Copilot to create an API in Python!
 
-## Prerequisites
-Before you begin, ensure you have the following:
+## Features
 
-- A GitHub account - [sign up for FREE](https://github.com)
-- Access to GitHub Copilot - [sign up for FREE](https://gh.io/gfb-copilot)!
-- A Code Editor - [VS Code](https://code.visualstudio.com/download) is recommended
-- API Client (like [Bruno](https://github.com/usebruno/bruno))
-- Git - [Download & Install Git](https://git-scm.com/downloads)
+- User authentication with JWT tokens
+- Trip CRUD operations 
+- Automated itinerary generation
+- Database persistence with SQLAlchemy
+- CORS support for frontend integration
+- Email verification system
+- Health check endpoint
 
-## 🚀 Getting Started
+## Tech Stack
 
-## Build along in a Codespace
+- Python 3.8+
+- Flask web framework
+- SQLAlchemy ORM
+- JWT authentication
+- SQLite database (configurable for PostgreSQL)
+- CORS middleware
 
-1. Click the "Open in GitHub Codespaces" button above to start developing in a GitHub Codespace.
+## Getting Started
 
-### Local Development Setup
+### Prerequisites
 
-If you prefer to develop locally, follow the steps below:
+- Python 3.8 or higher
+- pip package manager
+- Virtual environment tool (recommended)
 
-1.Fork and clone the repository and navigate to the [planventue-api](/planventure-api/) directory:
-```sh
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/planventure-api.git
 cd planventure-api
 ```
 
 2. Create a virtual environment and activate it:
-```sh
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
 3. Install the required dependencies:
-```sh
+```bash
 pip install -r requirements.txt
 ```
 
 4. Create an `.env` file based on [.sample.env](/planventure-api/.sample.env):
-```sh
+```bash
 cp .sample.env .env
 ```
 
 5. Start the Flask development server:
-```sh
+```bash
 flask run
 ```
 

@@ -1,6 +1,7 @@
 .vscode
 # Bruno adds a dir to your vscode workspace
 Planventure
+venv/
 __pycache__
 .DS_Store
 
