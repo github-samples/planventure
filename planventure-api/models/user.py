@@ -41,12 +41,22 @@ class User(BaseModel):
         return create_access_token(identity=str(self.id))
 
     def to_dict(self):
-        return {
-            'id': self.id,
-            'email': self.email,
-            'is_verified': self.is_verified,
-            'created_at': self.created_at.isoformat()
-        }
+        try:
+            return {
+                'id': self.id,
+                'email': self.email,
+                'is_verified': self.is_verified,
+                'created_at': self.created_at.isoformat() if self.created_at else None,
+                'updated_at': self.updated_at.isoformat() if self.updated_at else None
+            }
+        except AttributeError:
+            return {
+                'id': self.id if hasattr(self, 'id') else None,
+                'email': self.email if hasattr(self, 'email') else None,
+                'is_verified': self.is_verified if hasattr(self, 'is_verified') else False,
+                'created_at': None,
+                'updated_at': None
+            }
 
     def __repr__(self):
         return f'<User {self.email}>'
