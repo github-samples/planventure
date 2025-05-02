@@ -24,9 +24,20 @@ app.config['JWT_SECRET_KEY'] = environ.get('JWT_SECRET_KEY', 'default-jwt-secret
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(days=1)
 jwt = JWTManager(app)
 
+# Configure CORS
+CORS(app, resources={
+    r"/api/*": {
+        "origins": ["http://localhost:3000", "https://your-production-domain.com"],
+        "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"],
+        "expose_headers": ["Content-Range", "X-Content-Range"],
+        "supports_credentials": True,
+        "max_age": 120  # 2 minutes cache for preflight requests
+    }
+})
+
 # Initialize extensions
 db = SQLAlchemy(app)
-CORS(app)
 
 # Import models and utilities
 from models.user import User
@@ -34,9 +45,11 @@ from utils.validators import is_valid_email
 
 # Import blueprints
 from routes.auth import auth_bp
+from routes.trips import trips_bp
 
 # Register blueprints
 app.register_blueprint(auth_bp, url_prefix='/api/auth')
+app.register_blueprint(trips_bp, url_prefix='/api')
 
 # Basic routes
 @app.route('/')

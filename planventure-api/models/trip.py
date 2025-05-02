@@ -18,3 +18,17 @@ class Trip(BaseModel):
 
     def __repr__(self):
         return f'<Trip {self.destination} ({self.start_date} - {self.end_date})>'
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'destination': self.destination,
+            'start_date': self.start_date.strftime('%Y-%m-%d'),
+            'end_date': self.end_date.strftime('%Y-%m-%d'),
+            'latitude': self.latitude,
+            'longitude': self.longitude,
+            'itinerary': self.itinerary,
+            'created_at': self.created_at.isoformat() if self.created_at else None,
+            'updated_at': self.updated_at.isoformat() if self.updated_at else None
+        }

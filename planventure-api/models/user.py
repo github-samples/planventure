@@ -37,7 +37,8 @@ class User(BaseModel):
         )
 
     def generate_auth_token(self):
-        return create_access_token(identity=self.id)
+        # Convert user.id to string when creating the token
+        return create_access_token(identity=str(self.id))
 
     def to_dict(self):
         return {
