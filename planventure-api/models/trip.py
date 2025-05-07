@@ -32,7 +32,7 @@ class Trip(BaseModel):
                 'end_date': self.end_date.strftime('%Y-%m-%d') if self.end_date else None,
                 'latitude': self.latitude if self.latitude is not None else None,
                 'longitude': self.longitude if self.longitude is not None else None,
-                'itinerary': self.itinerary if self.itinerary is not None else {},
+                'itinerary': self.itinerary,
                 'created_at': self.created_at.isoformat() if self.created_at else None,
                 'updated_at': self.updated_at.isoformat() if self.updated_at else None
             }

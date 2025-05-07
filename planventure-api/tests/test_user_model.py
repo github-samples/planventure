@@ -15,9 +15,19 @@ def test_user_password_hashing(test_app, test_db):
     user = User(email='user@test.com')
     user.password = 'testpass123'
     
-    """assert user.password != 'testpass123'"""
     assert user.check_password('testpass123')
     assert not user.check_password('wrongpass')
+
+def test_password_not_readable(test_app, test_db):
+    """Test that password property raises AttributeError when accessed"""
+    user = User(email='test@example.com')
+    user.password = 'testpass123'
+    
+    with pytest.raises(AttributeError) as exc:
+        # This should raise an AttributeError
+        password = user.password
+        
+    assert 'password is not a readable attribute' in str(exc.value)
 
 def test_user_token_generation(test_app, test_db, test_user):
     """Test auth token generation"""

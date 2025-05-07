@@ -42,8 +42,11 @@ def create_trip():
         start_date = datetime.strptime(data['start_date'], '%Y-%m-%d')
         end_date = datetime.strptime(data['end_date'], '%Y-%m-%d')
         
-        # Generate default itinerary if none provided
-        itinerary = data.get('itinerary') or generate_default_itinerary(start_date, end_date)
+        # Generate or use provided itinerary
+        if 'itinerary' in data and data['itinerary']:
+            itinerary = data['itinerary']
+        else:
+            itinerary = generate_default_itinerary(start_date, end_date)
         
         new_trip = Trip(
             user_id=current_user_id,
